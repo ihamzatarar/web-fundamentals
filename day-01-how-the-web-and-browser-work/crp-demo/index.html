@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CRP demo</title>
+    <style>
+      body { font-family: sans-serif; max-width: 720px; margin: 40px auto; padding: 0 16px; line-height: 1.5; }
+      li { margin-bottom: 10px; }
+    </style>
+  </head>
+  <body>
+    <h1>Critical Rendering Path demo</h1>
+    <p>Open DevTools first (Cmd + Option + I): <b>Console</b> and <b>Network</b> tabs. Then open each experiment.</p>
+    <ol>
+      <li><a href="1-css-render-blocking.html">CSS is render-blocking</a> — blank for 5 s, then blue. Never red.</li>
+      <li><a href="2-script-parser-blocking.html">A plain script is parser-blocking</a> — the paragraph after the script waits.</li>
+      <li><a href="3-defer.html">defer</a> — page shows at once; scripts run after parsing, in order.</li>
+      <li><a href="4-async.html">async</a> — page shows at once; scripts run as soon as they arrive, any order.</li>
+      <li><a href="5-render-tree-and-layout.html">Render tree and layout</a> — in the DOM but not on screen; widths change with the window.</li>
+      <li><a href="6-css-blocks-js.html">CSS blocks JavaScript</a> — an inline script waits for a slow stylesheet.</li>
+    </ol>
+  </body>
+</html>

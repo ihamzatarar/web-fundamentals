@@ -1,0 +1,4 @@
+/* Loaded second and slow (?delay=5000). It overrides index.css by the cascade: later rule wins. */
+h1 {
+  color: blue;
+}

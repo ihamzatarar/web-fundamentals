@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>6. CSS blocks JavaScript</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index2.css?delay=4000" />
+    <script>
+      // An inline script: nothing to download, yet it only runs after the slow stylesheet arrives,
+      // because a script may ask about styles ("what colour is the h1?").
+      console.log(`[${Math.round(performance.now())} ms] inline script ran (waited for index2.css)`);
+    </script>
+  </head>
+  <body>
+    <h1>Hello CRP</h1>
+    <p style="font-family: sans-serif">
+      Console: the inline script ran at about <b>4000 ms</b>, not 0 ms. CSS does not block HTML
+      <i>downloading</i>, but it does block <b>JavaScript</b> from running.
+    </p>
+    <p style="font-family: sans-serif"><a href="index.html">← back</a></p>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+/* Loaded first and fast. If CSS were NOT render-blocking you would see red for a moment. */
+h1 {
+  color: red;
+  font-family: sans-serif;
+}
+
+p {
+  font-family: sans-serif;
+}
+
+.hidden-box {
+  display: none;
+}
+
+.invisible-box {
+  visibility: hidden;
+  border: 2px dashed gray;
+  padding: 8px;
+}
