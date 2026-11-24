@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>5. Render tree and layout</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index2.css" />
+    <style>
+      .note::before { content: "Note: "; font-weight: bold; }
+      .box { background: #dde8ff; padding: 12px; font-family: sans-serif; }
+    </style>
+  </head>
+  <body>
+    <h1>Hello CRP</h1>
+
+    <div class="hidden-box">I have display: none. I am in the DOM but NOT in the render tree.</div>
+    <div class="invisible-box">I have visibility: hidden. I am in the render tree: invisible, but I take space.</div>
+
+    <p class="note">the word "Note:" is a ::before pseudo-element — in the render tree, but not in the DOM.</p>
+
+    <div class="box" id="box">Layout: this box is <span id="width"></span> px wide. Resize the window.</div>
+
+    <h2 style="font-family: sans-serif">What to check</h2>
+    <ol style="font-family: sans-serif">
+      <li><b>Elements</b> panel: both divs are in the DOM. On screen, the display: none one is gone,
+        and there is an empty gap where the visibility: hidden one is.</li>
+      <li><b>Elements</b>: the &lt;p&gt; shows <code>::before</code> inside it, but "Note:" is not in the HTML source
+        (Cmd + Option + U).</li>
+      <li><b>Layout</b>: resize the window or use the device toolbar (Cmd + Shift + M). The width number
+        changes: layout recalculates sizes for every screen. Select the box → <b>Computed</b> → box model.</li>
+      <li><b>Paint</b>: Cmd + Shift + P → "Show paint flashing rectangles", then resize: green flashes = repaints.</li>
+    </ol>
+    <p style="font-family: sans-serif"><a href="index.html">← back</a></p>
+
+    <script>
+      const widthLabel = document.getElementById("width");
+      const box = document.getElementById("box");
+      const showWidth = () => (widthLabel.textContent = Math.round(box.getBoundingClientRect().width));
+      showWidth();
+      window.addEventListener("resize", showWidth);
+    </script>
+  </body>
+</html>

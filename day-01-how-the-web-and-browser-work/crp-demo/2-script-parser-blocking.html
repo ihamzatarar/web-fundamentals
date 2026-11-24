@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>2. Script is parser-blocking</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index2.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => console.log(`[${Math.round(performance.now())} ms] DOMContentLoaded`));
+    </script>
+  </head>
+  <body>
+    <h1>Hello CRP</h1>
+
+    <script src="js/index.js?delay=4000"></script>
+    <script src="js/index2.js?delay=1000"></script>
+
+    <p id="after">
+      I am written AFTER the two scripts. I appeared only after both ran (~4 s), because a plain
+      script <b>stops the HTML parser</b> until it is downloaded and run. That is <b>parser-blocking</b>.
+    </p>
+    <p>
+      What you should have seen: the blue heading at once, then after ~4 s it turns green with
+      "+ index2.js ran", and only then this text.
+    </p>
+    <p>
+      Check in Network: index.js and index2.js <b>started downloading at the same time</b> (the preload
+      scanner found both), but they still <b>ran in order</b>. Console: both say the paragraph did not exist yet.
+    </p>
+    <p><a href="index.html">← back</a></p>
+  </body>
+</html>

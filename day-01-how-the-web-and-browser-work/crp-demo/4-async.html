@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>4. async</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index2.css" />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => console.log(`[${Math.round(performance.now())} ms] DOMContentLoaded`));
+    </script>
+    <script src="js/index.js?delay=3000" async></script>
+    <script src="js/index2.js?delay=500" async></script>
+  </head>
+  <body>
+    <h1>Hello CRP</h1>
+    <p id="after">
+      I appeared <b>immediately</b>: async scripts download without stopping the parser.
+    </p>
+    <p>
+      What you should see: the page at once; after ~0.5 s "+ index2.js ran" is added; after ~3 s the heading turns green.
+    </p>
+    <p>
+      Console order: <b>DOMContentLoaded, index2.js, index.js</b> — each async script runs as soon as
+      <b>it</b> arrives, in any order, and DOMContentLoaded does not wait for them.
+      Compare with the defer page.
+    </p>
+    <p><a href="index.html">← back</a></p>
+  </body>
+</html>
