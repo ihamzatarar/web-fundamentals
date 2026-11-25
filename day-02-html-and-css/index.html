@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carforce</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Carforce</h1>
+  </header>
+
+  <main>
+    <form class="filter" aria-labelledby="filter-heading">
+      <h2 id="filter-heading">Make Filter</h2>
+      <label for="make">Make</label>
+      <select id="make" name="make">
+        <option value="">Any make</option>
+        <option>Toyota</option>
+        <option>Honda</option>
+        <option>Suzuki</option>
+      </select>
+      <button type="submit">Find</button>
+    </form>
+
+    <section aria-labelledby="results-heading">
+      <h2 id="results-heading">Availabel Cars</h2>
+
+      <ul class="cards">
+        <li class="card">
+          <h3><a href="#">Toyota Corolla 2018</a></h3>
+          <p>PKR 4,500,000</p>
+        </li>
+        <li class="card">
+          <h3><a href="#">Honda Civic 2020</a></h3>
+          <p>PKR 6,800,000</p>
+        </li>
+        <li class="card">
+          <h3><a href="#">Suzuki Alto 2022</a></h3>
+          <p>PKR 2,300,000</p>
+        </li>
+        <li class="card">
+          <h3><a href="#">Toyota Yaris 2021</a></h3>
+          <p>PKR 4,100,000</p>
+        </li>
+        <li class="card">
+          <h3><a href="#">Honda City 2019</a></h3>
+          <p>PKR 3,900,000</p>
+        </li>
+        <li class="card">
+          <h3><a href="#">Suzuki Swift 2023</a></h3>
+          <p>PKR 4,600,000</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>
